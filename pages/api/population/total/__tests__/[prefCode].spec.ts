@@ -3,12 +3,12 @@ import httpMocks, { MockResponse } from 'node-mocks-http'
 import { expect } from '@jest/globals'
 import * as RESASApi from '../../../../../apis/resas/RESASApi'
 import handler from '../[prefCode]'
-import { PopulationComposition } from '../../../../../types/PopulationComposition'
+import { PopulationCompositionData } from '../../../../../types/PopulationCompositionData'
 
 describe('pages/api/population/composition', () => {
   describe('正常系', () => {
     it('総人口データが返ってくる', async () => {
-      const prefectures: PopulationComposition[] = [
+      const prefectures: PopulationCompositionData[] = [
         { year: 1980, value: 12817 },
         { year: 1985, value: 12707 },
         { year: 1990, value: 12571 },
@@ -82,10 +82,12 @@ function createRequestMock(prefCode: number | string | null) {
   })
 }
 
-function setupMock(prefectures: PopulationComposition[]): void {
+function setupMock(prefectures: PopulationCompositionData[]): void {
   jest
-    .spyOn(RESASApi, 'RESASApiPopulationComposition')
+    .spyOn(RESASApi, 'RESASApiPopulationTotal')
     .mockReturnValue(
-      new Promise<PopulationComposition[]>((resolve) => resolve(prefectures))
+      new Promise<PopulationCompositionData[]>((resolve) =>
+        resolve(prefectures)
+      )
     )
 }

@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { PopulationComposition } from '../../../../types/PopulationComposition'
 import { ApiError } from '../../../../types/pages/ApiError'
-import { RESASApiPopulationComposition } from '../../../../apis/resas/RESASApi'
+import { RESASApiPopulationTotal } from '../../../../apis/resas/RESASApi'
+import { PopulationCompositionData } from '../../../../types/PopulationCompositionData'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<PopulationComposition[] | ApiError>
+  res: NextApiResponse<PopulationCompositionData[] | ApiError>
 ) {
   const { prefCode } = req.query
   if (inValidPrefCode(prefCode)) {
@@ -13,8 +13,8 @@ export default async function handler(
     return
   }
 
-  await RESASApiPopulationComposition(Number(prefCode))
-    .then((value: PopulationComposition[] | undefined) => {
+  await RESASApiPopulationTotal(Number(prefCode))
+    .then((value: PopulationCompositionData[] | undefined) => {
       if (!value || value.length === 0) {
         setErrorResponse(res)
         return
@@ -37,7 +37,7 @@ function inValidPrefCode(prefCode: string | string[]): boolean {
 }
 
 function setErrorResponse(
-  res: NextApiResponse<PopulationComposition[] | ApiError>
+  res: NextApiResponse<PopulationCompositionData[] | ApiError>
 ): void {
   res.status(500).json({ errorMessage: 'エラーが発生しました' })
 }

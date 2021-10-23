@@ -1,4 +1,4 @@
-import { RESASApiPopulationComposition } from '../RESASApi'
+import { RESASApiPopulationTotal } from '../RESASApi'
 import axios from 'axios'
 
 jest.mock('axios')
@@ -26,7 +26,7 @@ describe('api/resas/RESASApiPopulationComposition', () => {
       })
 
       setEnv('aaa', 'hoge.com')
-      const result = await RESASApiPopulationComposition(1)
+      const result = await RESASApiPopulationTotal(1)
 
       if (!result) fail()
 
@@ -38,20 +38,20 @@ describe('api/resas/RESASApiPopulationComposition', () => {
     it('RESAS_API_KEYがない', async () => {
       setEnv('', 'hoge.com')
 
-      await expect(RESASApiPopulationComposition(1)).rejects.toThrowError(Error)
+      await expect(RESASApiPopulationTotal(1)).rejects.toThrowError(Error)
     })
 
     it('RESAS_API_ENDPOINTがない', async () => {
       setEnv('aaa', '')
 
-      await expect(RESASApiPopulationComposition(1)).rejects.toThrowError(Error)
+      await expect(RESASApiPopulationTotal(1)).rejects.toThrowError(Error)
     })
 
     it('RESAS APIをコールしてエラーが発生する(axios get catch)', async () => {
       ;(axios.get as jest.Mock).mockRejectedValue(new Error('error'))
 
       setEnv('aaa', 'hoge.com')
-      const result = await RESASApiPopulationComposition(1)
+      const result = await RESASApiPopulationTotal(1)
 
       if (!result) fail()
 
