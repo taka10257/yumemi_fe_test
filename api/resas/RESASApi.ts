@@ -2,6 +2,8 @@ import axios from 'axios'
 import { RESASApiPrefectureResponse } from '../../types/api/resas/RESASApiPrefectureResponse'
 import { RESASApiConfig } from '../../types/api/resas/RESASApiConfig'
 import { Prefecture } from '../../types/Prefecture'
+import { RESASApiPopulationCompositionResponse } from '../../types/api/resas/RESASApiPopulationCompositionResponse'
+import { PopulationComposition } from '../../types/PopulationComposition'
 
 export async function RESASApiPrefectures(): Promise<Prefecture[] | undefined> {
   return await axios
@@ -13,6 +15,33 @@ export async function RESASApiPrefectures(): Promise<Prefecture[] | undefined> {
       console.log(err)
       return []
     })
+}
+
+export async function RESASApiPopulationComposition(
+  prefCode: number
+): Promise<PopulationComposition[] | undefined> {
+  return await axios
+    .get<RESASApiPopulationCompositionResponse>(
+      populationCompositionUrl(prefCode),
+      config()
+    )
+    .then((value) => {
+      const result = value.data.result
+      if (!result) return []
+
+      const populationData = result.data.find((data) => data.label === '総人口')
+      if (!populationData) return []
+
+      return populationData.data
+    })
+    .catch((err) => {
+      console.log(err)
+      return []
+    })
+}
+
+function populationCompositionUrl(prefCode: number): string {
+  return `${endpoint()}/api/v1/population/composition/perYear?cityCode=-&prefCode=${prefCode}`
 }
 
 function prefectureUrl(): string {
