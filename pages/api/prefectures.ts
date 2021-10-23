@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { Prefecture } from '../../types/Prefecture'
-import { RESASApiPrefectures } from '../../api/resas/RESASApi'
+import { RESASApiPrefectures } from '../../apis/resas/RESASApi'
 import { ApiError } from '../../types/pages/ApiError'
 
 export default async function handler(

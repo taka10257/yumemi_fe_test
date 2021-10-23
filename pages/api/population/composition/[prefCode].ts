@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PopulationComposition } from '../../../../types/PopulationComposition'
 import { ApiError } from '../../../../types/pages/ApiError'
-import { RESASApiPopulationComposition } from '../../../../api/resas/RESASApi'
+import { RESASApiPopulationComposition } from '../../../../apis/resas/RESASApi'
 
 export default async function handler(
   req: NextApiRequest,
