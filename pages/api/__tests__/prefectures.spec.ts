@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import httpMocks from 'node-mocks-http'
 import { expect } from '@jest/globals'
-import * as RESASApi from '../../../api/resas/RESASApi'
+import * as RESASApi from '../../../apis/resas/RESASApi'
 import { Prefecture } from '../../../types/Prefecture'
 import handler from '../prefectures'
 
