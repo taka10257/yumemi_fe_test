@@ -3,7 +3,7 @@ import { RESASApiPrefectureResponse } from '../../types/api/resas/RESASApiPrefec
 import { RESASApiConfig } from '../../types/api/resas/RESASApiConfig'
 import { Prefecture } from '../../types/Prefecture'
 import { RESASApiPopulationCompositionResponse } from '../../types/api/resas/RESASApiPopulationCompositionResponse'
-import { PopulationComposition } from '../../types/PopulationComposition'
+import { PopulationCompositionData } from '../../types/PopulationCompositionData'
 
 export async function RESASApiPrefectures(): Promise<Prefecture[] | undefined> {
   return await axios
@@ -17,9 +17,9 @@ export async function RESASApiPrefectures(): Promise<Prefecture[] | undefined> {
     })
 }
 
-export async function RESASApiPopulationComposition(
+export async function RESASApiPopulationTotal(
   prefCode: number
-): Promise<PopulationComposition[] | undefined> {
+): Promise<PopulationCompositionData[] | undefined> {
   return await axios
     .get<RESASApiPopulationCompositionResponse>(
       populationCompositionUrl(prefCode),

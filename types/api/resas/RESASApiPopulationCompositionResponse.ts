@@ -1,4 +1,4 @@
-import { PopulationComposition } from '../../PopulationComposition'
+import { PopulationCompositionData } from '../../PopulationCompositionData'
 
 export type RESASApiPopulationCompositionResponse = {
   statusCode?: string
@@ -6,6 +6,6 @@ export type RESASApiPopulationCompositionResponse = {
   description?: string
   result?: {
     boundaryYear: string
-    data: { label: string; data: PopulationComposition[] }[]
+    data: { label: string; data: PopulationCompositionData[] }[]
   }
 }
