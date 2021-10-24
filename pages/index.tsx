@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.sass'
 import PopulationTotalGraph from '../components/atoms/graph/populationTotal/PopulationTotalGraph'
 import { PopulationTotalData } from '../types/PopulationTotalData'
@@ -6,6 +6,7 @@ import { PopulationCompositionData } from '../types/PopulationCompositionData'
 import axios from 'axios'
 import { ApiError } from '../types/pages/ApiError'
 import CheckBoxPrefectureList from '../components/organisms/prefecture/CheckBoxPrefectureList'
+import SectionTitle from '../components/atoms/title/SectionTitle'
 
 export default function Index() {
   const [PopulationTotalDataList, setPopulationTotalDataList] = useState<
@@ -47,6 +48,7 @@ export default function Index() {
         />
       </div>
       <div>
+        <SectionTitle title={'総人口グラフ'} />
         <PopulationTotalGraph dataList={PopulationTotalDataList} />
       </div>
     </div>
