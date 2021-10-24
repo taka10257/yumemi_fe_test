@@ -1,0 +1,14 @@
+@import "styles/mixin_breakpoint"
+
+.root
+  display: flex
+  justify-content: center
+  background-color: gray
+
+.title
+  width: 95%
+  margin: 8px auto
+  text-align: center
+  font-size: 1.5em
+  +breakpoint('md')
+    font-size: 2em

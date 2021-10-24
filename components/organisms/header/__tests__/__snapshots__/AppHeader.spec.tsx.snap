@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/organisms/header/AppHeader 正常系 初期表示 1`] = `
+<div
+  className="root"
+>
+  <h1
+    className="title"
+  >
+    都道府県別の総人口推移
+  </h1>
+</div>
+`;
