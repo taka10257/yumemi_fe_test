@@ -8,10 +8,10 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <>
       <MetaHead />
       <AppHeader />
-      <div>{children}</div>
-    </div>
+      <>{children}</>
+    </>
   )
 }
