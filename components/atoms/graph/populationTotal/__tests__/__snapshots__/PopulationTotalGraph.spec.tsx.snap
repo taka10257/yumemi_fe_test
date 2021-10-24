@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/atoms/graph/populationTotal/PopulationTotalGraph 表示するデータがあるとき 1`] = `
+<Memo(ForwardRef)
+  highcharts={[Function]}
+  options={
+    Object {
+      "exporting": Object {
+        "enabled": false,
+      },
+      "legend": Object {
+        "align": "center",
+        "layout": "horizontal",
+        "verticalAlign": "bottom",
+      },
+      "series": Array [
+        Object {
+          "data": Array [
+            Array [
+              1960,
+              5039206,
+            ],
+            Array [
+              1965,
+              5171800,
+            ],
+          ],
+          "id": "1",
+          "name": "北海道",
+          "type": "line",
+        },
+        Object {
+          "data": Array [
+            Array [
+              1960,
+              1426606,
+            ],
+            Array [
+              1965,
+              1416591,
+            ],
+          ],
+          "id": "2",
+          "name": "青森",
+          "type": "line",
+        },
+      ],
+      "title": Object {
+        "text": "総人口",
+      },
+      "xAxis": Object {
+        "title": Object {
+          "align": "high",
+          "text": "年度",
+        },
+      },
+      "yAxis": Object {
+        "labels": Object {
+          "format": "{value}",
+        },
+        "title": Object {
+          "align": "high",
+          "offset": 0,
+          "rotation": 0,
+          "text": "人口数",
+          "x": -15,
+          "y": -15,
+        },
+      },
+    }
+  }
+/>
+`;
+
+exports[`components/atoms/graph/populationTotal/PopulationTotalGraph 表示するデータがないとき 1`] = `
+<Memo(ForwardRef)
+  highcharts={[Function]}
+  options={
+    Object {
+      "exporting": Object {
+        "enabled": false,
+      },
+      "legend": Object {
+        "align": "center",
+        "layout": "horizontal",
+        "verticalAlign": "bottom",
+      },
+      "series": Array [],
+      "title": Object {
+        "text": "総人口",
+      },
+      "xAxis": Object {
+        "title": Object {
+          "align": "high",
+          "text": "年度",
+        },
+      },
+      "yAxis": Object {
+        "labels": Object {
+          "format": "{value}",
+        },
+        "title": Object {
+          "align": "high",
+          "offset": 0,
+          "rotation": 0,
+          "text": "人口数",
+          "x": -15,
+          "y": -15,
+        },
+      },
+    }
+  }
+/>
+`;
