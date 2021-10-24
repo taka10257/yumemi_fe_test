@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/organisms/prefecture/CheckBoxPrefectureList 正常系 初期表示 1`] = `
-<div>
+<Fragment>
   都道府県データの取得中...
-</div>
+</Fragment>
 `;
