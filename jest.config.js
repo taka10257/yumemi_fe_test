@@ -18,4 +18,8 @@ module.exports = {
       tsconfig: '<rootDir>/test/tsconfig.jest.json',
     },
   },
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass|sss|styl)$':
+      '<rootDir>/node_modules/jest-css-modules',
+  },
 }
