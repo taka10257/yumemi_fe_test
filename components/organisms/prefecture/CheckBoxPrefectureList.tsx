@@ -30,11 +30,11 @@ export default function CheckBoxPrefectureList({
   })
 
   return (
-    <div>
+    <>
       {prefectures.length === 0 ? (
         <>{message}</>
       ) : (
-        <div>
+        <>
           <div className={styles.title_block}>
             <p>都道府県を選択してください</p>
           </div>
@@ -49,9 +49,9 @@ export default function CheckBoxPrefectureList({
               </div>
             ))}
           </div>
-        </div>
+        </>
       )}
-    </div>
+    </>
   )
 }
 
