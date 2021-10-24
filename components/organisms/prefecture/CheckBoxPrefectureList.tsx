@@ -4,6 +4,7 @@ import CheckBoxPrefecture from '../../molecules/checkbox/prefecture/CheckBoxPref
 import styles from './CheckBoxPrefectureList.module.sass'
 import axios from 'axios'
 import { ApiError } from '../../../types/pages/ApiError'
+import SectionTitle from '../../atoms/title/SectionTitle'
 
 type CheckBoxPrefectureListProps = {
   onCheck(prefCode: number, prefName: string): void
@@ -31,13 +32,11 @@ export default function CheckBoxPrefectureList({
 
   return (
     <>
+      <SectionTitle title={'都道府県'} />
       {prefectures.length === 0 ? (
         <>{message}</>
       ) : (
         <>
-          <div className={styles.title_block}>
-            <p>都道府県を選択してください</p>
-          </div>
           <div className={styles.checkbox_list}>
             {prefectures.map((prefecture) => (
               <div key={prefecture.prefCode} className={styles.checkbox}>

@@ -2,6 +2,9 @@
 
 exports[`components/organisms/prefecture/CheckBoxPrefectureList 正常系 初期表示 1`] = `
 <Fragment>
+  <SectionTitle
+    title="都道府県"
+  />
   都道府県データの取得中...
 </Fragment>
 `;
