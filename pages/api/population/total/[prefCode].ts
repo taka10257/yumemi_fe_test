@@ -17,8 +17,7 @@ export default async function handler(
       }
       res.status(200).json(value)
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(() => {
       setErrorResponse(res)
     })
 }

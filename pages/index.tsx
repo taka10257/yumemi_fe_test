@@ -27,8 +27,7 @@ export default function Index() {
         const addData = createPopulationTotalData(prefCode, prefName, dataList)
         setPopulationTotalDataList((data) => data.concat(addData))
       })
-      .catch((err: ApiError) => {
-        console.log(err)
+      .catch(() => {
         error()
       })
   }

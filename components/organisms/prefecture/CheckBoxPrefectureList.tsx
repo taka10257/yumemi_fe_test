@@ -67,7 +67,6 @@ function getPrefectures(): Promise<Prefecture[]> {
         resolve(dataList)
       })
       .catch((err: ApiError) => {
-        console.log(err)
         reject(err)
       })
   })
