@@ -11,8 +11,7 @@ export async function RESASApiPrefectures(): Promise<Prefecture[] | undefined> {
     .then((value) => {
       return value.data.result
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(() => {
       return []
     })
 }
@@ -35,7 +34,6 @@ export async function RESASApiPopulationTotal(
       return populationData.data
     })
     .catch((err) => {
-      console.log(err)
       return []
     })
 }

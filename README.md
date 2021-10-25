@@ -1,34 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ゆめみ課題
 
-## Getting Started
+## 本番環境
 
-First, run the development server:
+https://tsuzuki-yumemi-fe-test.vercel.app/
 
-```bash
-npm run dev
-# or
+---
+
+## 環境
+
+* yarn@1.22.17
+* node@14.18.1
+
+### test
+
+* jest
+* enzyme
+
+### lint
+
+* eslint
+
+### format
+
+* prettier
+
+---
+
+## 開発環境セットアップ
+
+### RESAS API KEYの取得
+
+[RESAS API]( https://opendata.resas-portal.go.jp/) で利用登録を行いAPIキーを取得する
+
+### envファイル作成
+
+```shell
+touch .env.local
+```
+
+* envファイルにパラメーターを追加
+
+```
+RESAS_API_ENDPOINT=https://opendata.resas-portal.go.jp
+RESAS_API_KEY=<RESAS API KEY>
+```
+
+### アプリケーション起動
+
+```shell
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* [http://localhost:3000](http://localhost:3000) にアクセス
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## コマンド
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### テスト
 
-## Learn More
+```shell
+yarn test
+```
 
-To learn more about Next.js, take a look at the following resources:
+スナップショット更新
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```shell
+yarn test -u
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+テストカバレッジ確認
 
-## Deploy on Vercel
+```shell
+yarn test-coverage
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### lint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```shell
+yarn lint
+```
+
+自動修正
+
+```shell
+yarn lint-fix
+```
+
+### 本番環境動作確認
+
+```shell
+yarn build && yarn start
+```
+
+
+
+
+

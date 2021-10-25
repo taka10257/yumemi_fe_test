@@ -8,10 +8,6 @@ export default async function handler(
   res: NextApiResponse<PopulationCompositionData[] | ApiError>
 ) {
   const { prefCode } = req.query
-  if (inValidPrefCode(prefCode)) {
-    setErrorResponse(res)
-    return
-  }
 
   await RESASApiPopulationTotal(Number(prefCode))
     .then((value: PopulationCompositionData[] | undefined) => {
@@ -21,19 +17,9 @@ export default async function handler(
       }
       res.status(200).json(value)
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(() => {
       setErrorResponse(res)
     })
-}
-
-function inValidPrefCode(prefCode: string | string[]): boolean {
-  if (typeof prefCode !== 'string') return false
-
-  const prefCodeNum = Number(prefCode)
-  if (!prefCodeNum) return false
-
-  return !(1 <= prefCodeNum && prefCodeNum <= 47)
 }
 
 function setErrorResponse(
